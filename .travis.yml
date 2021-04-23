@@ -1,0 +1,9 @@
+super: required 
+services:
+  - docker 
+
+before_install: 
+  - docker build -t hedyhidoury/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true USERNAME/docker-react npm run test -- --coverage
